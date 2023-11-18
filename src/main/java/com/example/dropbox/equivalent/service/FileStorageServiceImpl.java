@@ -45,7 +45,7 @@ public class FileStorageServiceImpl implements FileStorageService {
             log.log(Level.INFO, "File iinfo saved in the database  ID :{}  ",  fileModel.getFileId());
         }
         catch (Exception e) {
-
+            log.log(Level.FINEST, "Error while saving to the database : {}", e.getMessage());
         }
 
         Files.copy(file.getInputStream(), targetLocation, StandardCopyOption.REPLACE_EXISTING);
