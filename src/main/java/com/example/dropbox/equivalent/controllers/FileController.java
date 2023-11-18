@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.io.IOException;
 import java.sql.Timestamp;
 import java.util.logging.Level;
 
@@ -21,20 +22,12 @@ public class FileController {
     private FileRepository fileRepository;
 
     @PostMapping(path="/upload")
-    public @ResponseBody Integer uploadFile (
+    public @ResponseBody String uploadFile (
               @RequestParam String binaryData,
               @RequestParam String fileName,
               @RequestParam String size,
               @RequestParam String fileType) {
 
-        File file = new File();
-        file.setFilename(fileName);
-        file.setCreatedAt(new Timestamp(System.currentTimeMillis()));
-        file.setSize(size);
-        file.setFileType(fileType);
-        file.setBinaryData(binaryData);
-
-        fileRepository.save(file);
 
         log.log(Level.INFO, "The File Created is : {} ", file.toString());
         return file.getFileId();
