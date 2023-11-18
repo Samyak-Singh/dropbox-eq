@@ -31,6 +31,7 @@ public class FileStorageServiceImpl implements FileStorageService {
         fileModel.setFilename(fileName);
         fileModel.setCreatedAt(Timestamp.from(createdAt.toInstant()));
         fileModel.setFileType(fileType);
+        fileModel.setSize(String.valueOf(size));
 
         Files.copy(file.getInputStream(), targetLocation, StandardCopyOption.REPLACE_EXISTING);
 
