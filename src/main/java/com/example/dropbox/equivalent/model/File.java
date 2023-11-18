@@ -75,6 +75,19 @@ public class File {
         this.createdAt = createdAt;
     }
 
+    @Override
+    public String toString() {
+        return "File{" +
+                "fileId=" + fileId +
+                ", filename='" + filename + '\'' +
+                ", binaryData='" + binaryData + '\'' +
+                ", filepath='" + filepath + '\'' +
+                ", size='" + size + '\'' +
+                ", fileType='" + fileType + '\'' +
+                ", createdAt=" + createdAt +
+                '}';
+    }
+
     String filepath;
 
     String size;
@@ -82,5 +95,7 @@ public class File {
     String fileType;
 
     Timestamp createdAt;
+
+
 
 }

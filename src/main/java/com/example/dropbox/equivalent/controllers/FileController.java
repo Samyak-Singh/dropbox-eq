@@ -20,7 +20,7 @@ public class FileController {
     @Autowired
     private FileRepository fileRepository;
 
-    @PostMapping(path="/upload") // Map ONLY POST Requests
+    @PostMapping(path="/upload")
     public @ResponseBody Integer uploadFile (
               @RequestParam String binaryData,
               @RequestParam String fileName,
