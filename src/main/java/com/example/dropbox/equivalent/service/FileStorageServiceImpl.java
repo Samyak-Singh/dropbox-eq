@@ -1,5 +1,6 @@
 package com.example.dropbox.equivalent.service;
 
+import com.example.dropbox.equivalent.model.File;
 import com.example.dropbox.equivalent.service.FileStorageService;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
@@ -8,6 +9,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.StandardCopyOption;
+import java.sql.Timestamp;
 import java.util.Date;
 
 @Service
@@ -25,6 +27,11 @@ public class FileStorageServiceImpl implements FileStorageService {
 
         // Save file to the target directory
         Path targetLocation = Path.of(uploadDir).resolve(normalizedFileName);
+        File fileModel  = new File();
+        fileModel.setFilename(fileName);
+        fileModel.setCreatedAt(Timestamp.from(createdAt.toInstant()));
+        fileModel.setFileType(fileType);
+
         Files.copy(file.getInputStream(), targetLocation, StandardCopyOption.REPLACE_EXISTING);
 
         return normalizedFileName;

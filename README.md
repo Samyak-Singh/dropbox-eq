@@ -13,4 +13,4 @@ Use commands mentioned in  database.sql file to create a database and a user in 
 Once Appplication is build via maven using 
 1) mvn clean install 
 2) Trigger the curl command in cmd using this format
-   3) curl http://localhost:8080/files/upload -d binaryData=1010101 -d fileName=dropboxEqFirstFile -d size=324 -d fileType=.txt
+   3) curl http://localhost:8080/files/upload -d file="/file/location/" -d fileName=dropboxEqFirstFile -d metadata=somemetadata
